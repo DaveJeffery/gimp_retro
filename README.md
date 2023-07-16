@@ -216,25 +216,37 @@ In order to make up some of the lost speed, I used tuples instead of lists for t
 
 Once I finished the filter I dug out my usual cottage picture as a test:
 
+![A Somerset cottage photographed by John Livens](/readme/original.png)
+
 _Photo: John Livens_
 
 The resulting image had me crying into my coffee:
+
+![A Somerset cottage put through a non-functional Apple II filter resulting in a green and orange dithered mess](/readme/wrong.png)
 
 _Soundtrack from the film More?_
 
 It looked like something out of “[The Lost World of Friese-Greene](http://en.wikipedia.org/wiki/Claude_Friese-Greene)”! Having picked out some bugs I got something a bit closer, but the white stripes were a real pain to get rid of:
 
+![A Somerset cottage put through Apple II a semi-functional filter with correct, stippled, colours but white vertical stripes](/readme/wrong2.png)
+
 _It took ages to fix..._
 
 Finally, after I had remembered how to count to six, I got a successful image:
+
+![A Somerset cottage put through working Apple II filter](/readme/right.png)
 
 _...but the result was worth it._
 
 The filter runs in two modes, a halftone mode or a posterised mode. The posterise mode doesn’t stipple the colours. Here is the posterised output:
 
+![A Somerset cottage put through Apple II filter with Posterized option](/readme/posterised.png)
+
 _Posterised, it’s very striking_
 
 I added a little dialogue box to the filter to allow users to pick which mode they want:
+
+![The user interface of the Apple II filter](/readme/python-fu-apple2.png)
 
 _The filter’s complex user interface_
 
