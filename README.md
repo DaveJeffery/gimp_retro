@@ -251,9 +251,13 @@ The main novelty for me in this filter was that in order to avoid having to use 
 
 Here’s an example image before:
 
+![Uridium cover art](/readme/uridium_before.png)
+
 _Original scan_
 
 And after conversion in The GIMP using the filter:
+
+![Uridium cover art put through the Commodore 64 filter](/readme/uridium.png)
 
 _Commodore 64 Low Res Filter_
 
