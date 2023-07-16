@@ -204,13 +204,13 @@ _Cottage - MSX1_
 Converting the filter was straightforward, and I managed to find and fix a small bug in the sdlBasic original whilst I was going along.
 
 ## Appley Within
-As I had enjoyed converting nitrofurano’s sdlBasic MSX and ZX Spectrum picture converters to The GIMP, I thought I’d tackle the Apple II colour picture filter next.
+As I had enjoyed converting [nitrofurano](https://nitrofurano.linuxkafe.com/)’s sdlBasic MSX and ZX Spectrum picture converters to [The GIMP](https://gimp.org/), I thought I’d tackle the [Apple II](https://en.wikipedia.org/wiki/Apple_II) colour picture filter next.
 
-Mind you, saying that the Apple II had a colour mode is a bit like saying that Steve Wozniak was a professional ballroom dancer. Whilst technically correct, it really is wide of the mark.
+Mind you, saying that the Apple II had a colour mode is a bit like saying that [Steve Wozniak](https://en.wikipedia.org/wiki/Steve_Wozniak) was a professional ballroom dancer. Whilst technically correct, it really is wide of the mark.
 
 Apple II colour is a strange world in which ”red or yellow” becomes orange and “blue or cyan” becomes blue. Because of this Paulo's filter was rather more complicated than the ones I've tackled previously. In all, it took me about three days to understand what was going on and finally iron out all the bugs (mine, not Paulo’s!).
 
-Because of the complexity of the filter, I decided to implement some functions to emulate the `ink()`, `dot()`, `point()` and `line()` commands of sdlBasic. This made the Python much more readable (and eaiser to debug), even if it did mean I lost a bit of speed.
+Because of the complexity of the filter, I decided to implement some functions to emulate the `ink()`, `dot()`, `point()` and `line()` commands of [sdlBasic](https://www.sdlbasic.altervista.org/main/). This made the Python much more readable (and eaiser to debug), even if it did mean I lost a bit of speed.
 
 In order to make up some of the lost speed, I used tuples instead of lists for the look-up tables. I should have done this in my other filters too.
 
@@ -222,7 +222,7 @@ The resulting image had me crying into my coffee:
 
 _Soundtrack from the film More?_
 
-It looked like something out of “The Lost World of Friese-Greene”! Having picked out some bugs I got something a bit closer, but the white stripes were a real pain to get rid of:
+It looked like something out of “[The Lost World of Friese-Greene](http://en.wikipedia.org/wiki/Claude_Friese-Greene)”! Having picked out some bugs I got something a bit closer, but the white stripes were a real pain to get rid of:
 
 _It took ages to fix..._
 
@@ -238,14 +238,14 @@ I added a little dialogue box to the filter to allow users to pick which mode th
 
 _The filter’s complex user interface_
 
-My overall impression is that the Apple II produced orangey mush—a bit like the NTSC pictures put through the IBA’s DICE standards convertor we used to see on British television in the 70s. But, I must admit, it does have a certain kind of charm. And, above all, Paulo did an incredible job in coming up with an Apple II filter—it’s an ingenious bit of coding.
+My overall impression is that the Apple II produced orangey mush—a bit like the [NTSC](https://en.wikipedia.org/wiki/NTSC) pictures put through the IBA’s DICE standards convertor we used to see on British television in the 70s. But, I must admit, it does have a certain kind of charm. And, above all, Paulo did an incredible job in coming up with an Apple II filter—it’s an ingenious bit of coding.
 
 If you want to try it out for yourself, the filter is available to download from here. Bear in mind that the filter is pretty slow, so it’s best to stick to small images unless you have a fast computer.
 
 ## If you see SID, tell him...
-I’ve converted [nitrofurano](http://nitrofurano.linuxkafe.com/)’s [sdlBasic](http://www.sdlbasic.altervista.org/main/) Commodore 64 Low Resolution mode picture converter into a [Python-Fu](http://www.gimp.org/docs/python/index.html) image filter for [The GIMP](http://www.gimp.org/).
+I’ve converted [nitrofurano](https://nitrofurano.linuxkafe.com/)’s [sdlBasic](https://www.sdlbasic.altervista.org/main/) Commodore 64 Low Resolution mode picture converter into a [Python-Fu](https://www.gimp.org/docs/python/index.html) image filter for [The GIMP](https://www.gimp.org/).
 
-In Commodore 64 Low Resolution mode, each block of 4 x 8 2:1 aspect ratio pixels can contain four colours from a choice of 16.  Only, it’s a bit more complicated than that! Fortunately, [this](http://wapedia.mobi/en/List_of_8-bit_computer_hardware_palettes) article explains how it is supposed to behave very nicely. Paulo’s algorithm has to go through eight separate stages to create the finished image.
+In Commodore 64 Low Resolution mode, each block of 4 x 8 2:1 aspect ratio pixels can contain four colours from a choice of 16.  Only, it’s a bit more complicated than that! Fortunately, [this](https://wapedia.mobi/en/List_of_8-bit_computer_hardware_palettes) article explains how it is supposed to behave very nicely. Paulo’s algorithm has to go through eight separate stages to create the finished image.
 
 The main novelty for me in this filter was that in order to avoid having to use a three dimensional list (which would have entailed syntax to boggle the mind) I used a [Python](http://python.org/) new-style class. That meant I could use a one dimensional list and let the class take care of getting and setting the right bit of it when required through method calls.
 
