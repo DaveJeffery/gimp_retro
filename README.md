@@ -243,11 +243,11 @@ My overall impression is that the Apple II produced orangey mush—a bit like th
 If you want to try it out for yourself, the filter is available to download from here. Bear in mind that the filter is pretty slow, so it’s best to stick to small images unless you have a fast computer.
 
 ## If you see SID, tell him...
-I’ve converted nitrofurano’s sdlBasic Commodore 64 Low Resolution mode picture converter into a Python-Fu image filter for The GIMP.
+I’ve converted [nitrofurano](http://nitrofurano.linuxkafe.com/)’s [sdlBasic](http://www.sdlbasic.altervista.org/main/) Commodore 64 Low Resolution mode picture converter into a [Python-Fu](http://www.gimp.org/docs/python/index.html) image filter for [The GIMP](http://www.gimp.org/).
 
-In Commodore 64 Low Resolution mode, each block of 4 x 8 2:1 aspect ratio pixels can contain four colours from a choice of 16.  Only, it’s a bit more complicated than that! Fortunately, this article explains how it is supposed to behave very nicely. Paulo’s algorithm has to go through eight separate stages to create the finished image.
+In Commodore 64 Low Resolution mode, each block of 4 x 8 2:1 aspect ratio pixels can contain four colours from a choice of 16.  Only, it’s a bit more complicated than that! Fortunately, [this](http://wapedia.mobi/en/List_of_8-bit_computer_hardware_palettes) article explains how it is supposed to behave very nicely. Paulo’s algorithm has to go through eight separate stages to create the finished image.
 
-The main novelty for me in this filter was that in order to avoid having to use a three dimensional list (which would have entailed syntax to boggle the mind) I used a Python new-style class. That meant I could use a one dimensional list and let the class take care of getting and setting the right bit of it when required through method calls.
+The main novelty for me in this filter was that in order to avoid having to use a three dimensional list (which would have entailed syntax to boggle the mind) I used a [Python](http://python.org/) new-style class. That meant I could use a one dimensional list and let the class take care of getting and setting the right bit of it when required through method calls.
 
 Here’s an example image before:
 
