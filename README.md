@@ -175,3 +175,30 @@ To get undo to work I needed to create a duplicate of the current layer to work 
 _From XOR to AOR_
 
 That way, The GIMP seemed to remember the original layer and could go back to it when you used undo.
+
+## MSX Picture Filter for The GIMP
+Now that Paulo Silva's (nitrofurano) ZX Spectrum filter for The GIMP was working nicely, I thought I'd like to try converting one of his other sdlBasic picture filters into a Python GIMP plug-in.
+
+I chose the MSX1 Screen 2 filter, as it looked quite similar to the ZX Spectrum filter. I'd never actually seen an [MSX](http://en.wikipedia.org/wiki/MSX) computer working (I saw some switched off in a shop once) so I didn't really know what to expect until I read up on Wikipedia.
+
+Whereas the ZX Spectrum suffered from attribute clash on the character square level, MSX1 suffered from [attribute clash](http://en.wikipedia.org/wiki/Attribute_clash) on the character row level so I was expecting the resulting images to look like slightly better ZX Spectrum images. And so it turned out.
+
+To compare, here is John Liven's photograph of a cottage:
+
+![A Somerset cottage photographed by John Livens](/readme/original.png)
+
+Cottage - Photo: John Livens
+
+And here it is processed by the ZX Spectrum filter:
+
+![Above image put through GIMP ZX Spectrum filter.](/readme/Illustrate%20for%20Rosie%20009.jpg)
+
+_Cottage - ZX Spectrum_
+
+And finally by the MSX1 filter:
+
+![Above image put through GIMP MSX filter.](/readme/cottage_msx.png)
+
+_Cottage - MSX1_
+
+Converting the filter was straightforward, and I managed to find and fix a small bug in the sdlBasic original whilst I was going along.
