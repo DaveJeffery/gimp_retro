@@ -202,3 +202,59 @@ And finally by the MSX1 filter:
 _Cottage - MSX1_
 
 Converting the filter was straightforward, and I managed to find and fix a small bug in the sdlBasic original whilst I was going along.
+
+## Appley Within
+As I had enjoyed converting nitrofurano’s sdlBasic MSX and ZX Spectrum picture converters to The GIMP, I thought I’d tackle the Apple II colour picture filter next.
+
+Mind you, saying that the Apple II had a colour mode is a bit like saying that Steve Wozniak was a professional ballroom dancer. Whilst technically correct, it really is wide of the mark.
+
+Apple II colour is a strange world in which ”red or yellow” becomes orange and “blue or cyan” becomes blue. Because of this Paulo's filter was rather more complicated than the ones I've tackled previously. In all, it took me about three days to understand what was going on and finally iron out all the bugs (mine, not Paulo’s!).
+
+Because of the complexity of the filter, I decided to implement some functions to emulate the `ink()`, `dot()`, `point()` and `line()` commands of sdlBasic. This made the Python much more readable (and eaiser to debug), even if it did mean I lost a bit of speed.
+
+In order to make up some of the lost speed, I used tuples instead of lists for the look-up tables. I should have done this in my other filters too.
+
+Once I finished the filter I dug out my usual cottage picture as a test:
+
+_Photo: John Livens_
+
+The resulting image had me crying into my coffee:
+
+_Soundtrack from the film More?_
+
+It looked like something out of “The Lost World of Friese-Greene”! Having picked out some bugs I got something a bit closer, but the white stripes were a real pain to get rid of:
+
+_It took ages to fix..._
+
+Finally, after I had remembered how to count to six, I got a successful image:
+
+_...but the result was worth it._
+
+The filter runs in two modes, a halftone mode or a posterised mode. The posterise mode doesn’t stipple the colours. Here is the posterised output:
+
+_Posterised, it’s very striking_
+
+I added a little dialogue box to the filter to allow users to pick which mode they want:
+
+_The filter’s complex user interface_
+
+My overall impression is that the Apple II produced orangey mush—a bit like the NTSC pictures put through the IBA’s DICE standards convertor we used to see on British television in the 70s. But, I must admit, it does have a certain kind of charm. And, above all, Paulo did an incredible job in coming up with an Apple II filter—it’s an ingenious bit of coding.
+
+If you want to try it out for yourself, the filter is available to download from here. Bear in mind that the filter is pretty slow, so it’s best to stick to small images unless you have a fast computer.
+
+## If you see SID, tell him...
+I’ve converted nitrofurano’s sdlBasic Commodore 64 Low Resolution mode picture converter into a Python-Fu image filter for The GIMP.
+
+In Commodore 64 Low Resolution mode, each block of 4 x 8 2:1 aspect ratio pixels can contain four colours from a choice of 16.  Only, it’s a bit more complicated than that! Fortunately, this article explains how it is supposed to behave very nicely. Paulo’s algorithm has to go through eight separate stages to create the finished image.
+
+The main novelty for me in this filter was that in order to avoid having to use a three dimensional list (which would have entailed syntax to boggle the mind) I used a Python new-style class. That meant I could use a one dimensional list and let the class take care of getting and setting the right bit of it when required through method calls.
+
+Here’s an example image before:
+
+_Original scan_
+
+And after conversion in The GIMP using the filter:
+
+_Commodore 64 Low Res Filter_
+
+As usual this plug-in, along with ones for the ZX Spectrum, Apple II and MSX1 can be downloaded from here. 
