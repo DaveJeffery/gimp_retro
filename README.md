@@ -148,3 +148,18 @@ However, Paulo used it to produce something much grander:
 _by nitrofurano_
 
 This isn’t the end of the story, unfortunately, as now I have to get the filter’s `Undo` feature working.
+
+## Unweaving the Rainbow
+As I promised, I've tweaked nitrofurano's ZX Spectrum filter for The GIMP so that you can now undo (and redo!) the effects of the filter properly.
+
+![The cover of Face To Face by Barclay James Harvest put through the Python ZX Spectrum filter](/readme/face.jpg)
+
+_Not a favourite album, but a nice cover_
+
+To get undo to work I needed to create a duplicate of the current layer to work on, and then merge that down into the original layer when the filter has finished its work.
+
+![The cover of Victims of Circumstance by Barclay James Harvest put through the Python ZX Spectrum filter](/readme/victims.png)
+
+_From XOR to AOR_
+
+That way, The GIMP seemed to remember the original layer and could go back to it when you used undo.
