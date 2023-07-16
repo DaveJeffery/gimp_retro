@@ -56,30 +56,30 @@ Nitrofurano (Paulo Silva) has been lovely and very encouraging as I’ve been ha
 
 _Sinclair TV - thanks to Nitrofurano_
 
-The reason the code was written originally was to be part of a very interesting project Paulo is working on to create "retro" vision web-cams. You can find out more about it [here](http://webcampictureson8bitcomputers.blogspot.com/).
+The reason the code was written originally was to be part of a very interesting project Paulo is working on to create “retro” vision web-cams. You can find out more about it [here](http://webcampictureson8bitcomputers.blogspot.com/).
 
 ## ZX Spectrum +3
-Two days ago I blogged about getting nitrofurano's Python ZX Spectrum image filter for The GIMP working, and yesterday I blogged about speeding it up. However, Paulo e-mailed me just after I'd posted and said that the filter wasn't working as it should.
+Two days ago I blogged about getting nitrofurano’s Python ZX Spectrum image filter for The GIMP working, and yesterday I blogged about speeding it up. However, Paulo e-mailed me just after I'd posted and said that the filter wasn't working as it should.
 
-I had assumed that the filter just wasn't supposed to work on small images - such as ones at the ZX Spectrum resolution of 256 x 192. So if we took a 256 x 192 image like this:
+I had assumed that the filter just wasn’t supposed to work on small images—such as ones at the ZX Spectrum resolution of 256 x 192. So if we took a 256 x 192 image like this:
 
-Original image at 256 x 192
+_Original image at 256 x 192_
 
 The best we could hope for would be this:
 
-Put through The GIMP version of filter
+_Put through The GIMP version of filter_
 
 However, Paulo pointed out that his sdlBasic version of the filter would produce this:
 
-Put through sdlBasic version of filter
+_Put through sdlBasic version of filter_
 
-But having looked at the Python code for The GIMP filter he couldn't work out what was wrong. I was intrigued, and decided to have a look too.
+But having looked at the Python code for The GIMP filter he couldn’t work out what was wrong. I was intrigued, and decided to have a look too.
 
-Paulo thought that the problem probably lay in one of the loops that were processing the image, but I thought that was unlikely, particularly as he'd checked them so thoroughly against his sdlBasic original. The loops just contained maths, and maths tends to be pretty similar in any language.
+Paulo thought that the problem probably lay in one of the loops that were processing the image, but I thought that was unlikely, particularly as he’d checked them so thoroughly against his sdlBasic original. The loops just contained maths, and maths tends to be pretty similar in any language.
 
 Sure enough, the problem lay not in the maths but in the idiosyncratic weirdness of Python. I blame Eric Idle, personally.
 
-The first problem was the way in which Paulo had dimensioned the lists (elderly gentlemen like me call them arrays) he used to work on character blocks. He'd done this:
+The first problem was the way in which Paulo had dimensioned the lists (elderly gentlemen like me call them arrays) he used to work on character blocks. He’d done this:
 
 ```
 r0 = [[0] * 8] * 8
@@ -87,9 +87,9 @@ g0 = [[0] * 8] * 8
 b0 = [[0] * 8] * 8
 ```
 
-Which is perfectly sensible, but the problem is in Python almost everything is copied by reference rather than by value. Numbers are copied by value, so [0] * 8 does create a list containing eight different zeros.
+Which is perfectly sensible, but the problem is in Python almost everything is copied by reference rather than by value. Numbers are copied by value, so `[0] * 8` does create a list containing eight different zeros.
 
-However lists are copied by reference so [[0] * 8] * 8 creates a list containing eight references to the same list. That means that any change made to one row of this multidimensional list affects all the other rows too - effectively cutting the resolution of the filter down to the character block level. This caused the blockiness.
+However lists are copied by reference so `[[0] * 8] * 8` creates a list containing eight references to the same list. That means that any change made to one row of this multidimensional list affects all the other rows too—effectively cutting the resolution of the filter down to the character block level. This caused the blockiness.
 
 To solve it we needed to do this:
 
@@ -101,7 +101,7 @@ b0 = [[None] * 8 for i in range(8)]`
 
 What we are doing now is using a list comprehension to create a brand new list eight times, which is what we are after.
 
-Another problem was that instead of referring to the nested lists using list[y][x] Paulo had used list[x][y]. So, for instance we had this:
+Another problem was that instead of referring to the nested lists using `list[y][x]` Paulo had used `list[x][y]`. So, for instance we had this:
 
 ```
 b0[x2][y2] = str1[2]
@@ -117,9 +117,9 @@ g0[y2][x2] = str1[1]
 r0[y2][x2] = str1[0]`
 ```
 
-It's very easy to do - in fact I've done it myself. Many times!
+It’s very easy to do—in fact I’ve done it myself. Many times!
 
-Regarding Python's weirdness, it more often works for you than against you and that's why I love the language. For instance, in Paulo's sdlBasic version of the filter he had to do this to swap two values:
+Regarding Python’s weirdness, it more often works for you than against you and that’s why I love the language. For instance, in Paulo’s sdlBasic version of the filter he had to do this to swap two values:
 
 ```
 if ikattr < paattr:
@@ -128,24 +128,23 @@ if ikattr < paattr:
     paattr = tmpr`
 ```
 
-Whereas in Python you can use the far more "Pythonic":
+Whereas in Python you can use the far more “Pythonic”:
 
 ```
 if ikattr < paattr:
  ikattr, paattr = paattr, ikattr`
 ```
+
 Anyway, now the filter was fixed and I could have some fun with some ZX Spectrum proportioned stupid rubbish. Here is Central News at 256 x 192:
 
-It's 1982 again!
+_It's 1982 again!_
 
 And here is a Tyne Tees/Channel 4 endcap - again at 256 x 192:
 
-Unworthy of Half Man Half Biscuit
+_Unworthy of Half Man Half Biscuit_
 
 However, Paulo used it to produce something much grander:
 
-by nitrofurano - Click to enlarge
+_by nitrofurano_
 
-This isn't the end of the story, unfortunately, as now I have to get the filter's Undo feature working - but tomorrow you'll be pleased to hear there will be something completely different.
-
-The latest version of the ZX Spectrum image filter for The GIMP is available to download from here.
+This isn’t the end of the story, unfortunately, as now I have to get the filter’s `Undo` feature working.
