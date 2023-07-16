@@ -63,13 +63,19 @@ Two days ago I blogged about getting nitrofurano’s Python ZX Spectrum image fi
 
 I had assumed that the filter just wasn’t supposed to work on small images—such as ones at the ZX Spectrum resolution of 256 x 192. So if we took a 256 x 192 image like this:
 
+![A Somerset cottage photographed by John Livens](/readme/original.png)
+
 _Original image at 256 x 192_
 
 The best we could hope for would be this:
 
+![Above image put through a broken GIMP ZX Spectrum filter. The image has a huge loss of resolution.](/readme/broken.png)
+
 _Put through The GIMP version of filter_
 
 However, Paulo pointed out that his sdlBasic version of the filter would produce this:
+
+![Above image put through an SDLBasic filter. The image has been filtered perfectly.](/readme/Illustrate%20for%20Rosie%20009.jpg)
 
 _Put through sdlBasic version of filter_
 
