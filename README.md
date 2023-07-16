@@ -143,13 +143,19 @@ if ikattr < paattr:
 
 Anyway, now the filter was fixed and I could have some fun with some ZX Spectrum proportioned stupid rubbish. Here is Central News at 256 x 192:
 
+![A 1982 Central News caption put through ZX Spectrum filter](/readme/central_news_1982.png)
+
 _It's 1982 again!_
 
 And here is a Tyne Tees/Channel 4 endcap - again at 256 x 192:
 
+![A 1986 Tyne Tees Channel 4 co production caption put through ZX Spectrum filter](/readme/C4_TTTV_endcap201286.jpg)
+
 _Unworthy of Half Man Half Biscuit_
 
 However, Paulo used it to produce something much grander:
+
+![A large Japanese painting of a tsunami put through a ZX Spectrum filter](/readme/8x5hokusaitsunamizx.png)
 
 _by nitrofurano_
 
