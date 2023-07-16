@@ -8,7 +8,11 @@ When I was browsing through [The GIMP plug-in registry](http://registry.gimp.org
 
 As it was written in [Python](http://www.python.org/) I thought I’d give it a go, but the plug-in refused to work. It took about an hour spuddling about to get the plug-in working. The main problem was incorrect indentation—Python is fussy about that. I also added some code to allow undoing and for the plug-in to appear in the Filters menu and then I could start playing!
 
+![Replay Expo logo](/readme/r3play%20logo.png)
+
 _Before_
+
+![Replay Expo logo put through the Python ZX Spectrum filter](/readme/r3play_zx.png)
 
 _After_
 
@@ -17,6 +21,8 @@ My fixed version of the plug-in can be downloaded from here, and adds the plug-i
 [GNU/Linux](http://www.gnu.org/) users need to set the Execute permission for the file `zxspectrum.py` before the [The GIMP](http://www.gimp.org/) will recognise it.
 
 The plug-in is a very simple proof of concept and doesn’t work particularly well on small (as in ZX Spectrum sized) images as it just averages out the values in character squares, but it certainly creates some interesting effects on large images. 1024 x 768 seems to be the optimum size.
+
+![Repton put through the Python ZX Spectrum filter](/readme/repton.png)
 
 _Large images work best_
 
